@@ -9,8 +9,10 @@ app.use(express.json()); // Middleware to parse JSON bodies
 const cors = require("cors");
 app.use(morgan('dev'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 app.use(cors({
   origin: process.env.FRONTEND_URL,
+  // origin: process.env.BASE_URL,
   credentials: true
 }));
 
