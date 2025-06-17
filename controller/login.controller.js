@@ -2,34 +2,6 @@ const FormData = require("../model/formData.model"); // Import the FormData mode
 const bcrypt = require("bcrypt"); // Import bcrypt for password hashing
 const jwt = require("jsonwebtoken"); // Import jsonwebtoken for token generation
 
-// const login = async (req, res) => {
-//   const { email, password } = req.body;
-
-//   try {
-//     const user = await formData.findOne({ email });
-//     if (!user) {
-//       return res.status(400).json({ error: "User not found" });
-//     }
-
-//     const isMatch = await bcrypt.compare(password, user.password);
-//     if (!isMatch) {
-//       return res.status(401).json({ error: "Invalid credentials" });
-//     }
-
-//     // Create token
-//     const token = jwt.sign(
-//       { userId: user._id, email: user.email },
-//       process.env.JWT_SECRET,
-//       { expiresIn: "1h" }
-//     );
-
-//     res.status(200).json({ message: "Login successful", token });
-//   } catch (error) {
-//     console.error("Login error:", error);
-//     res.status(500).json({ error: "Internal server error" });
-//   }
-// }
-
 const login = async (req, res) => {
   const { identifier, password } = req.body; // "identifier" can be email or username
 
