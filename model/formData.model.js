@@ -45,7 +45,7 @@ const formDataSchema = new mongoose.Schema({
   },
   profilePicture: {
     type: String,
-    default: 'https://example.com/default-profile-picture.png', // Default profile picture URL
+    default: "pic/Avatar.png", // Default profile picture
   },
   language: {
     type: String,
