@@ -37,7 +37,7 @@ router.post("/submit-form",
       .isLength({ min: 8 })
       .withMessage('Must be 8+ chars')
       .matches(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
-      .withMessage('Must include upper, lower, and number'),
+      .withMessage('Password must include upper, lower, and number'),
     body('confirmPassword')
       .custom((val, { req }) => {
         if (val !== req.body.password) {

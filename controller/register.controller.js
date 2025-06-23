@@ -205,19 +205,19 @@ const register = async (req, res) => {
     if (existingEmail) {
       return res
         .status(400)
-        .json({ success: false, message: "This email is already registered" });
+        .json({ error: "This email is already registered" });
     }
 
     const existingUsername = await FormData.findOne({ username });
     if (existingUsername) {
-      return res.status(400).json({ success: false, message: "This username is already taken" });
+      return res.status(400).json({ error: "This username is already taken" });
     }
 
     const existingMobile = await FormData.findOne({ mobile });
     if (existingMobile) {
       return res
         .status(400)
-        .json({ success: false, message: "This mobile number already exists" });
+        .json({ error: "This mobile number already exists" });
     }
 
     // Hash the password (using same salt rounds as reset password for consistency)
@@ -241,7 +241,7 @@ const register = async (req, res) => {
     return res.status(201).json({ success: true, message: "User registered successfully" });
   } catch (error) {
     console.error("Error during registration:", error);
-    return res.status(500).json({ success: false, message: "Server error" });
+    return res.status(500).json({ error: "Server error" });
   }
 };
 

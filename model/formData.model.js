@@ -58,7 +58,8 @@ const formDataSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    max: 8,
+    minlength: 8,
+
   },
   passwordResetToken: {
     type: String,
